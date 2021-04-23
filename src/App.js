@@ -1,16 +1,16 @@
 import React from "react";
-import Button from "@material-ui/core/Button";
+import MainLayout from "../src/layouts/";
 import { ThemeProvider } from "@material-ui/core/styles";
 import theme from "../src/theme";
 import { ConnectedRouter } from 'connected-react-router';
+import GlobalStyles from "../src/components/GlobalStyles";
 
 const App = ({history}) => {
   return (
     <ConnectedRouter history={history}>
     <ThemeProvider theme={theme}>
-      <Button variant="contained" color="primary">
-        Hello World
-      </Button>
+        <GlobalStyles />
+        <MainLayout />
     </ThemeProvider>
     </ConnectedRouter>
   );
