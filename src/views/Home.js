@@ -49,6 +49,7 @@ const Home = (props) => {
                <Pokecard 
                   name={pokemon.name} 
                   image={pokemon.sprites.other.dream_world.front_default}
+                  types={pokemon.types}
                   className={classes.card} />
            </Grid>   
            ))
