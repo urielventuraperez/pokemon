@@ -2,6 +2,7 @@ import React from "react";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import { makeStyles } from "@material-ui/core/styles";
 import TopBar from "./TopBar";
+import Footer from "./Footer";
 
 const drawerWidth = 240;
 
@@ -49,6 +50,7 @@ const MainLayout = (props) => {
       <main className={props.isLogged ? classes.content : classes.fullContent}>
         <TopBar />
         {props.content}
+        <Footer />
       </main>
     </div>
   );

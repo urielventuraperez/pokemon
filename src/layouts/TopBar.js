@@ -33,7 +33,6 @@ export default function TopBar() {
           <Typography variant="h6" className={classes.title}>
             {`${APP_TITLE}`}
           </Typography>
-          <Button color="inherit">Login</Button>
         </Toolbar>
       </AppBar>
     </div>

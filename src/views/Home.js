@@ -25,14 +25,14 @@ const Home = (props) => {
   const { getPokemons, pokemons, isLoad } = props;
 
   useEffect(()=>{
-    getPokemons(getRandomNumbers(1,150,10))
+    getPokemons(getRandomNumbers(1,160,12))
   },[getPokemons]);
   
   return (
     <React.Fragment>
       <Banner
         image={Image}
-        title={"¿Buscas un pokemon? Atrapalo"}
+        title={"¿Buscas un pokemon? !Atrápalo ya!"}
         backgroundColor={"rgb(255 255 255 / 85%)"}
         height={"80vh"}
       />
