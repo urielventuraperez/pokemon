@@ -34,6 +34,12 @@ const useStyles = makeStyles({
     textTransform: 'capitalize',
     fontWeight: '500',
     borderColor: 'black'
+  },
+  link: {
+    "&:hover": {
+      textDecoration: 'none',
+      boxShadow: '0 10px 20px rgba(0,0,0,0.20), 0 6px 6px rgba(0,0,0,0.25)'
+    }
   }
 });
 
@@ -42,6 +48,7 @@ const Pokecard = ({name, image, types}) => {
 
   return (
     <Link
+      className={classes.link}
       component={RouterLink}
       to={`/pokemon/${name}`}>
     <Card

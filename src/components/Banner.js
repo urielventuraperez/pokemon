@@ -1,6 +1,7 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
+import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
 import Search from "./Search";
 
@@ -17,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
   image: {
     backgroundRepeat: "no-repeat",
     backgroundPosition: "center",
-    backgroundSize: "cover",
+    backgroundSize: (props) => props.size || 'cover',
     backgroundBlendMode: "Color",
   },
   margin: {
@@ -37,6 +38,7 @@ const Banner = (props) => {
         backgroundImage: `url(${props.image})`,
       }}
     >
+      <Container>
       <Typography variant="h2" component="h1">
         {props.title}
       </Typography>
@@ -44,6 +46,7 @@ const Banner = (props) => {
         props.isSearch &&
         <Search all={props.all}/>
       }
+      </Container>
     </Grid>
   );
 };

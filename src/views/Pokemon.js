@@ -28,6 +28,9 @@ const useStyles = makeStyles((theme) => ({
     bottom: theme.spacing(2),
     right: theme.spacing(2)
   },
+  skeleton: {
+    padding: theme.spacing(4)
+  }
 }));
 
 const Pokemon = (props) => {
@@ -81,13 +84,19 @@ const Pokemon = (props) => {
   return (
     <React.Fragment>
       {
-          isLoad ? <Skeleton /> :
+          isLoad ? 
+          <div className={classes.skeleton}>
+          <Skeleton variant="rect" height={230} />
+          <Skeleton />
+          <Skeleton />
+          </div> :
           <div>
           <Banner
           image={pokePrincipal.image}
           backgroundColor={"rgb(255 255 255 / 35%)"}
           height={"50vh"}
           isSearch={false}
+          size={'contain'}
         />
         <Container className={classes.container}>
         <Typography variant="h1" component="h2">{`${pokePrincipal.name.charAt(0).toUpperCase()}${pokePrincipal.name.slice(1)}`}</Typography>

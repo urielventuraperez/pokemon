@@ -7,11 +7,16 @@ import Pokecard from '../components/PokeCard';
 import { getRandomNumbers } from "../utils/random";
 import { getPokemons, getAllPokemon } from "../redux/actions";
 import { connect } from "react-redux";
+import Typography from '@material-ui/core/Typography';
 import Skeleton from '@material-ui/lab/Skeleton';
 
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
+  },
+  title:{
+    marginBottom: theme.spacing(2),
+    marginTop: theme.spacing(3)
   },
   card: {
     padding: theme.spacing(2),
@@ -45,6 +50,11 @@ const Home = (props) => {
        </div>
        :
        <Container>
+         <Grid container className={classes.title} spacing={3}>
+         <Typography variant="h3" gutterBottom>
+            Vistos recientemente
+          </Typography>
+         </Grid>
        <Grid container spacing={3}>
          {
           pokemons.map( pokemon => (
