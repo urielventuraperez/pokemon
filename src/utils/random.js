@@ -10,6 +10,10 @@ function calculateRandomNumber(max, min) {
     return Math.floor(Math.random() * (max-min + 1)) + min;
 }
 
+export function randonNumber(max, min) {
+    return calculateRandomNumber(max,min)
+}
+
 export function getRandomNumbers(min,max,length) {
 
     var randomNumbers=[];
