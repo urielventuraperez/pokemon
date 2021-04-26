@@ -7,6 +7,8 @@ import IconButton from "@material-ui/core/IconButton";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import { APP_TITLE } from "../utils/environments";
 import { useHistory } from 'react-router-dom';
+import { Link as RouterLink } from 'react-router-dom'
+import Link from '@material-ui/core/Link';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -17,6 +19,7 @@ const useStyles = makeStyles((theme) => ({
   },
   title: {
     flexGrow: 1,
+    color: 'white'
   },
 }));
 
@@ -43,10 +46,9 @@ const TopBar = (props) => {
               <ArrowBackIcon />
             </IconButton>
           )}
-
-          <Typography variant="h6" className={classes.title}>
+          <Link component={RouterLink} to={'/'} variant="h6" className={classes.title}>
             {`${APP_TITLE}`}
-          </Typography>
+          </Link>
         </Toolbar>
       </AppBar>
     </div>

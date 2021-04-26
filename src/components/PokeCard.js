@@ -7,6 +7,8 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Chip from '@material-ui/core/Chip';
 import Typography from '@material-ui/core/Typography';
 import colors from '../theme/typeColors';
+import { Link as RouterLink } from 'react-router-dom'
+import Link from '@material-ui/core/Link';
 
 const useStyles = makeStyles({
   root: {
@@ -39,7 +41,11 @@ const Pokecard = ({name, image, types}) => {
   const classes = useStyles(types);
 
   return (
-    <Card className={classes.root}>
+    <Link
+      component={RouterLink}
+      to={`/pokemon/${name}`}>
+    <Card
+      className={classes.root}>
       <CardActionArea>
         <CardMedia
           className={classes.image}
@@ -63,6 +69,7 @@ const Pokecard = ({name, image, types}) => {
         </CardContent>
       </CardActionArea>
     </Card>
+    </Link>
   );
 }
 

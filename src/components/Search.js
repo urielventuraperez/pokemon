@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
 const Search = (props) => {
   const classes = useStyles();
   return (
-    <Box display="flex" flexDirection="column" className={classes.margin}>
+      <Box display="flex" flexDirection="column" className={classes.margin}>
       <FormControl className={clsx(classes.margin)}>
         <Autocomplete
           freeSolo

@@ -40,7 +40,10 @@ const Banner = (props) => {
       <Typography variant="h2" component="h1">
         {props.title}
       </Typography>
-      <Search all={props.all}/>
+      {
+        props.isSearch &&
+        <Search all={props.all}/>
+      }
     </Grid>
   );
 };

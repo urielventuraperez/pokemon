@@ -3,7 +3,7 @@ import {
   GET_POKEMONS,
   VIEW_POKEMON,
   GET_ALL_POKEMON,
-  IS_LOAD_ALL,
+  IS_LOAD_ALL
 } from "../actionTypes";
 import { API } from "../../utils/environments";
 
@@ -22,18 +22,24 @@ export function getAllPokemon() {
   };
 }
 
-export function getPokemon(id) {
+export function getPokemon(name) {
   return function (dispatch) {
     dispatch({ type: IS_LOAD });
-    return fetch(`${API}/pokemon-species/${id}`)
-      .then((response) => response.json())
-      .then((json) => {
-        dispatch({
-          type: VIEW_POKEMON,
-          payload: json,
-        });
-      })
-      .catch((e) => console.log(e));
+    return Promise.all([
+      fetch(`${API}/pokemon/${name}`),
+      fetch(`${API}/pokemon-species/${name}`)
+    ]).then( responses => {
+      return Promise.all(responses.map(function (response) {
+        return response.json();
+      }));
+    }).then( data => {
+     return dispatch({
+        type: VIEW_POKEMON,
+        payload: data,
+      });
+    }).catch( e => {
+      console.log(e);
+    });
   };
 }
 
