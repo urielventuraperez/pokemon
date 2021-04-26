@@ -1,12 +1,12 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
-import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
-import { APP_TITLE } from '../utils/environments';
+import React from "react";
+import { makeStyles } from "@material-ui/core/styles";
+import AppBar from "@material-ui/core/AppBar";
+import Toolbar from "@material-ui/core/Toolbar";
+import Typography from "@material-ui/core/Typography";
+import IconButton from "@material-ui/core/IconButton";
+import ArrowBackIcon from "@material-ui/icons/ArrowBack";
+import { APP_TITLE } from "../utils/environments";
+import { useHistory } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -20,16 +20,30 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function TopBar() {
+const TopBar = (props) => {
   const classes = useStyles();
+  const history = useHistory();
+  const [isBack, setIsBack] = React.useState(false);
 
+  React.useEffect(() => {
+    history.action !== 'POP' ? setIsBack(true) : setIsBack(false)
+  }, [])
   return (
     <div className={classes.root}>
       <AppBar position="static">
         <Toolbar>
-          <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
-            <MenuIcon />
-          </IconButton>
+          {isBack && (
+            <IconButton
+              edge="start"
+              className={classes.menuButton}
+              color="inherit"
+              onClick={ () => history.goBack() }
+              aria-label="menu"
+            >
+              <ArrowBackIcon />
+            </IconButton>
+          )}
+
           <Typography variant="h6" className={classes.title}>
             {`${APP_TITLE}`}
           </Typography>
@@ -37,4 +51,6 @@ export default function TopBar() {
       </AppBar>
     </div>
   );
-}
+};
+
+export default TopBar;
