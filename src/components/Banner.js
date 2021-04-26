@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
   image: {
     backgroundRepeat: "no-repeat",
     backgroundPosition: "center",
-    backgroundSize: (props) => props.size || 'cover',
+    backgroundSize: (props) => props.size || "cover",
     backgroundBlendMode: "Color",
   },
   margin: {
@@ -39,13 +39,10 @@ const Banner = (props) => {
       }}
     >
       <Container>
-      <Typography variant="h2" component="h1">
-        {props.title}
-      </Typography>
-      {
-        props.isSearch &&
-        <Search all={props.all}/>
-      }
+        <Typography variant="h2" component="h1">
+          {props.title}
+        </Typography>
+        {props.isSearch && <Search all={props.all} />}
       </Container>
     </Grid>
   );

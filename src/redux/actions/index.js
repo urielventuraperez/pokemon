@@ -38,7 +38,10 @@ export function getPokemon(name) {
         payload: data,
       });
     }).catch( e => {
-      console.log(e);
+      return dispatch({
+        type: VIEW_POKEMON,
+        payload: {},
+      });
     });
   };
 }
