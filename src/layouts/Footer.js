@@ -25,10 +25,10 @@ function Copyright() {
   return (
     <div>
     <Typography variant="body1" align="center">
-      {"Mi Pokedex app - Copyright © "} {new Date().getFullYear()} 
+      {"Mi Pokedex primera generación © "} {new Date().getFullYear()} 
     </Typography>
-    <Typography variant="body1" align="center">
-        Aplicación web creada por Uriel Ventura, prueba React para Houm.
+    <Typography variant="body2" align="center">
+        {"Aplicación web creada por Uriel Ventura, prueba React.js para Houm."}
     </Typography>
     </div>
   );

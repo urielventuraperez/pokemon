@@ -8,7 +8,7 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Chip from '@material-ui/core/Chip';
 import Typography from '@material-ui/core/Typography';
-import Pokecardbg from '../assets/images/pokeball_pattern.jpg';
+import Pokecardbg from '../assets/images/pokecard-bg.jpg';
 import colors from '../theme/typeColors';
 
 const useStyles = makeStyles({
@@ -17,7 +17,8 @@ const useStyles = makeStyles({
     borderRadius: 20,
     backgroundImage: `url(${Pokecardbg})`,
     backgroundColor: types => colors[types[0].type.name] || '#fff',
-    backgroundBlendMode: 'luminosity'
+    backgroundBlendMode: 'color-burn',
+    backgroundSize: 'cover'
   },
   image: {
     objectFit: 'contain'
@@ -28,9 +29,9 @@ const useStyles = makeStyles({
     fontWeight: '700'
   },
   types: {
-    backgroundColor: types => colors[types[0].type.name] || '#fff',
+    color: types => colors[types[0].type.name] || 'white',
     marginRight: '0.4rem',
-    color: 'white',
+    backgroundColor: 'white',
     textTransform: 'capitalize',
     fontWeight: '500'
   }

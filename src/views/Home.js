@@ -8,6 +8,7 @@ import Pokecard from '../components/PokeCard';
 import { getRandomNumbers } from "../utils/random";
 import { getPokemons } from "../redux/actions";
 import { connect } from "react-redux";
+import Skeleton from '@material-ui/lab/Skeleton';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -25,7 +26,7 @@ const Home = (props) => {
   const { getPokemons, pokemons, isLoad } = props;
 
   useEffect(()=>{
-    getPokemons(getRandomNumbers(1,160,12))
+    getPokemons(getRandomNumbers(1,151,12))
   },[getPokemons]);
   
   return (
@@ -38,14 +39,14 @@ const Home = (props) => {
       />
       { isLoad ?
        <div>
-         Cargando
+         <Skeleton animation="wave" />
        </div>
        :
        <Container maxWidth={false}>
        <Grid container spacing={3}>
          {
           pokemons.map( pokemon => (
-             <Grid key={pokemon.id} item xs={12} sm={4}>
+             <Grid key={pokemon.id} item xs={12} sm={6} md={4}>
                <Pokecard 
                   name={pokemon.name} 
                   image={pokemon.sprites.other.dream_world.front_default}
