@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import { makeStyles } from '@material-ui/core/styles';
 import Banner from "../components/Banner";
-import Image from "../assets/images/pokeball.jpg";
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
 import Pokecard from '../components/PokeCard';
@@ -33,7 +32,7 @@ const Home = (props) => {
   return (
     <React.Fragment>
       <Banner
-        image={Image}
+        image={'/static/images/pokeball.jpg'}
         title={"¿Buscas un pokemon? !Atrápalo ya!"}
         backgroundColor={"rgb(255 255 255 / 85%)"}
         height={"80vh"}
@@ -45,7 +44,7 @@ const Home = (props) => {
          <Skeleton animation="wave" />
        </div>
        :
-       <Container maxWidth={false}>
+       <Container>
        <Grid container spacing={3}>
          {
           pokemons.map( pokemon => (

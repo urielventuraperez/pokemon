@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import MainLayout from "../src/layouts/";
 import { ThemeProvider } from "@material-ui/core/styles";
 import RenderRoutes from '../src/routes';
@@ -16,5 +17,11 @@ const App = ({history}) => {
     </ConnectedRouter>
   );
 };
+
+
+App.propTypes = {
+  history: PropTypes.object,
+};
+
 
 export default App;

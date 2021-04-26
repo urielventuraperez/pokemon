@@ -6,14 +6,13 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Chip from '@material-ui/core/Chip';
 import Typography from '@material-ui/core/Typography';
-import Pokecardbg from '../assets/images/pokecard-bg.jpg';
 import colors from '../theme/typeColors';
 
 const useStyles = makeStyles({
   root: {
     maxWidth: 345,
     borderRadius: 20,
-    backgroundImage: `url(${Pokecardbg})`,
+    backgroundImage: `url(/static/images/pokecard-bg.jpg)`,
     backgroundColor: types => colors[types[0].type.name] || '#fff',
     backgroundBlendMode: 'color-burn',
     backgroundSize: 'cover'
@@ -31,7 +30,8 @@ const useStyles = makeStyles({
     marginRight: '0.4rem',
     backgroundColor: 'white',
     textTransform: 'capitalize',
-    fontWeight: '500'
+    fontWeight: '500',
+    borderColor: 'black'
   }
 });
 

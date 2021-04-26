@@ -39,7 +39,7 @@ const Footer = () => {
 
   return (
     <React.Fragment>
-        <Container maxWidth="md" className={classes.footer}>
+        <Container maxWidth={false} className={classes.footer}>
           <Box mt={3}>
             <Copyright />
           </Box>
