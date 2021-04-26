@@ -6,7 +6,7 @@ import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
 import Pokecard from '../components/PokeCard';
 import { getRandomNumbers } from "../utils/random";
-import { getPokemons } from "../redux/actions";
+import { getPokemons, getAllPokemon } from "../redux/actions";
 import { connect } from "react-redux";
 import Skeleton from '@material-ui/lab/Skeleton';
 
@@ -23,11 +23,12 @@ const useStyles = makeStyles((theme) => ({
 
 const Home = (props) => {
   const classes = useStyles();
-  const { getPokemons, pokemons, isLoad } = props;
+  const { getPokemons, pokemons, all, isLoad, getAllPokemon } = props;
 
   useEffect(()=>{
     getPokemons(getRandomNumbers(1,151,12))
-  },[getPokemons]);
+    getAllPokemon()
+  },[getPokemons, getAllPokemon]);
   
   return (
     <React.Fragment>
@@ -36,6 +37,8 @@ const Home = (props) => {
         title={"¿Buscas un pokemon? !Atrápalo ya!"}
         backgroundColor={"rgb(255 255 255 / 85%)"}
         height={"80vh"}
+        isSearch={true}
+        all={all}
       />
       { isLoad ?
        <div>
@@ -64,6 +67,7 @@ const Home = (props) => {
 
 const mapStateToProps = (state) => {
   return {
+    all: state.pokemon.all,
     pokemons: state.pokemon.pokemons,
     isLoad: state.pokemon.isLoad
   }
@@ -72,6 +76,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     getPokemons: (list) => {dispatch(getPokemons(list))},
+    getAllPokemon: () => {dispatch(getAllPokemon())}
   }
 }
 
