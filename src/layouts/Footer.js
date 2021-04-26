@@ -5,7 +5,6 @@ import Container from "@material-ui/core/Container";
 import Box from "@material-ui/core/Box";
 import IconButton from "@material-ui/core/IconButton";
 import GitHubIcon from "@material-ui/icons/GitHub";
-import ButtonGroup from "@material-ui/core/ButtonGroup";
 import FacebookIcon from "@material-ui/icons/Facebook";
 
 const useStyles = makeStyles((theme) => ({
@@ -40,7 +39,6 @@ function Copyright() {
 function MySocialMedia() {
   return (
     <Box>
-      <ButtonGroup>
         <IconButton
           color="primary"
           component="a"
@@ -55,9 +53,8 @@ function MySocialMedia() {
           href="https://www.facebook.com/VenturaPerezCarlosUriel/"
           target="_blank"
         >
-          <FacebookIcon href="" />
+          <FacebookIcon />
         </IconButton>
-      </ButtonGroup>
     </Box>
   );
 }
